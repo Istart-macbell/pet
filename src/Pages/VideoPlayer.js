@@ -56,17 +56,10 @@ const VideoPlayer = () => {
             {/* Full Screen Transparent Dark Gray Background */}
             <div className="absolute inset-0 bg-gray-800 opacity-60 z-10"></div>
 
-            {/* PRODUCTS Title */}
-            <div
-                className="absolute z-20 text-white text-4xl sm:text-6xl md:text-8xl font-bold px-6 py-3 top-16"
-                style={{ textShadow: "6px 6px 10px rgba(104, 72, 72, 0.8)" }}
-            >
-                OUR PRODUCTS
-            </div>
 
             {/* Product Categories - All in One Row */}
             {/* Product Categories - 2 per Row */}
-            <div className="absolute z-20 top-32 text-blue-950 text-lg sm:text-2xl md:text-3xl font-semibold px-6 py-3 grid grid-cols-2 gap-6 text-center">
+            <div className="absolute z-20 top-32 text-blue-950 text-lg sm:text-2xl md:text-3xl font-semibold px-1 py-1 grid grid-cols-2 gap-6 text-center">
                 {productCategories.map((category, index) => (
                     <div
                         key={index}

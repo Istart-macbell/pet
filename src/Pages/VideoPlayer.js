@@ -10,6 +10,9 @@ const media = [
     "https://clipart-library.com/images/zcX5gEbMi.gif",
 ];
 
+const productCategories = ["Pets", "Pet Foods", "Pet Medicines", "Pet Accessories"];
+
+
 const VideoPlayer = () => {
     const [index, setIndex] = useState(0);
     const [timeLeft, setTimeLeft] = useState("");
@@ -53,19 +56,46 @@ const VideoPlayer = () => {
             {/* Full Screen Transparent Dark Gray Background */}
             <div className="absolute inset-0 bg-gray-800 opacity-60 z-10"></div>
 
-            {/* Coming Soon Text with Horizontal Movement */}
+            {/* PRODUCTS Title */}
             <div
-                className="absolute z-20 text-white text-4xl sm:text-6xl md:text-8xl font-bold px-6 py-3 rounded-lg animate-[moveText_5s_linear_infinite]"
-                style={{
-                    textShadow: "6px 6px 10px rgba(104, 72, 72, 0.8)",
-                }}
+                className="absolute z-20 text-white text-4xl sm:text-6xl md:text-8xl font-bold px-6 py-3 top-16"
+                style={{ textShadow: "6px 6px 10px rgba(104, 72, 72, 0.8)" }}
             >
-                COMING SOON
+                OUR PRODUCTS
             </div>
+
+            {/* Product Categories - All in One Row */}
+            {/* Product Categories - 2 per Row */}
+            <div className="absolute z-20 top-32 text-blue-950 text-lg sm:text-2xl md:text-3xl font-semibold px-6 py-3 grid grid-cols-2 gap-6 text-center">
+                {productCategories.map((category, index) => (
+                    <div
+                        key={index}
+                        className="bg-white bg-opacity-30 text-blue-950 p-3 rounded-xl shadow-lg"
+                    >
+                        {category}
+                    </div>
+                ))}
+            </div>
+
+
+
+
+{/* Coming Soon Text with Horizontal Movement */}
+<div
+    className="absolute z-20 text-white text-6xl sm:text-8xl md:text-8xl font-bold px-6 py-3 rounded-lg animate-[moveText_5s_linear_infinite] flex items-center"
+    style={{
+        textShadow: "6px 6px 10px rgba(104, 72, 72, 0.8)",
+    }}
+>
+    <span className="mr-2">COMING</span>
+    <span>SOON</span>
+</div>
+
+
 
             {/* Countdown Timer with Gray Background */}
             <div
-                className="absolute z-20 text-white text-2xl sm:text-2xl md:text-4xl lg:text-5xl font-bold px-4 py-2 sm:px-6 sm:py-3 mt-48 bg-purple-500 rounded-3xl sm:rounded-lg shadow-lg"
+                className="absolute z-20 text-white text-4xl sm:text-4xl md:text-4xl lg:text-5xl font-bold px-4 py-2 sm:px-6 sm:py-3 mt-48 bg-purple-500 rounded-3xl sm:rounded-lg shadow-lg"
                 style={{
                     textShadow: "2px 2px 6px rgba(0, 0, 0, 0.6)",
                 }}
@@ -74,7 +104,7 @@ const VideoPlayer = () => {
             </div>
 
             {/* CONTACT US Button Below Timer */}
-            <a href="mailto:anirban.sarkar.kolkata@gmail.com" className="absolute z-20 bottom-16 text-white bg-blue-900 text-lg font-bold px-4 py-2 rounded-full shadow-lg">
+            <a href="mailto:anirban.sarkar.kolkata@gmail.com" className="absolute z-20 bottom-16 text-white bg-blue-900 text-lg mb-4 font-bold px-4 py-2 rounded-full shadow-lg">
                 REACH OUT TO US
             </a>
 

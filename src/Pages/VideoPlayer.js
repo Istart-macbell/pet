@@ -54,7 +54,8 @@ const VideoPlayer = () => {
     return (
         <div className="w-screen h-screen flex justify-center items-center bg-black relative">
             {/* Full Screen Transparent Dark Gray Background */}
-            <div className="absolute inset-0 bg-gray-800 opacity-60 z-10"></div>
+{/* Full Screen Transparent Dark Gray Background */}
+<div className="absolute inset-0 bg-gray-800 opacity-80 z-10"></div>
 
 
             {/* Product Categories - All in One Row */}
@@ -63,7 +64,7 @@ const VideoPlayer = () => {
                 {productCategories.map((category, index) => (
                     <div
                         key={index}
-                        className="bg-white bg-opacity-30 text-blue-950 p-3 rounded-xl shadow-lg"
+                        className="bg-blue-950 bg-opacity-70 text-white p-3 rounded-xl shadow-lg font-bold"
                     >
                         {category}
                     </div>
@@ -73,16 +74,17 @@ const VideoPlayer = () => {
 
 
 
-{/* Coming Soon Text with Horizontal Movement */}
-<div
-    className="absolute z-20 text-white text-6xl sm:text-8xl md:text-8xl font-bold px-6 py-3 rounded-lg animate-[moveText_5s_linear_infinite] flex items-center"
-    style={{
-        textShadow: "6px 6px 10px rgba(104, 72, 72, 0.8)",
-    }}
->
-    <span className="mr-2">COMING</span>
-    <span>SOON</span>
-</div>
+
+            {/* Coming Soon Text with Horizontal Movement */}
+            <div
+                className="absolute z-20 text-white text-6xl sm:text-8xl md:text-8xl font-bold px-6 py-3 rounded-lg animate-[moveText_5s_linear_infinite] flex items-center"
+                style={{
+                    textShadow: "6px 6px 10px rgba(104, 72, 72, 0.8)",
+                }}
+            >
+                <span className="mr-2">COMING</span>
+                <span>SOON</span>
+            </div>
 
 
 

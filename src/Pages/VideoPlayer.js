@@ -84,31 +84,31 @@ const VideoPlayer = () => {
                 </div>
             </div>
 
-            {/* Social Media Icons */}
-            <div className="absolute z-20 bottom-10 sm:bottom-12 md:bottom-16 flex justify-center space-x-4 sm:space-x-2 w-full">
-                <ul className="flex space-x-4 justify-center">
-                    <li className="bg-white p-3 rounded-md shadow-lg">
-                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 text-2xl sm:text-xl">
-                            <FaFacebookF />
-                        </a>
-                    </li>
-                    <li className="bg-white p-3 rounded-md shadow-lg">
-                        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="text-blue-400 text-2xl sm:text-xl">
-                            <FaTwitter />
-                        </a>
-                    </li>
-                    <li className="bg-white p-3 rounded-md shadow-lg">
-                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-pink-500 text-2xl sm:text-xl">
-                            <FaInstagram />
-                        </a>
-                    </li>
-                    <li className="bg-white p-3 rounded-md shadow-lg">
-                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="text-blue-700 text-2xl sm:text-xl">
-                            <FaLinkedinIn />
-                        </a>
-                    </li>
-                </ul>
+           {/* Social Media Icons */}
+<div className="absolute z-20 bottom-10 sm:bottom-12 md:bottom-16 flex justify-center space-x-4 sm:space-x-2 w-full">
+    <ul className="flex space-x-4 justify-center">
+        <li className="bg-white p-3 rounded-md shadow-lg">
+            <div className="text-blue-600 text-2xl sm:text-xl">
+                <FaFacebookF />
             </div>
+        </li>
+        <li className="bg-white p-3 rounded-md shadow-lg">
+            <div className="text-blue-400 text-2xl sm:text-xl">
+                <FaTwitter />
+            </div>
+        </li>
+        <li className="bg-white p-3 rounded-md shadow-lg">
+            <div className="text-pink-500 text-2xl sm:text-xl">
+                <FaInstagram />
+            </div>
+        </li>
+        <li className="bg-white p-3 rounded-md shadow-lg">
+            <div className="text-blue-700 text-2xl sm:text-xl">
+                <FaLinkedinIn />
+            </div>
+        </li>
+    </ul>
+</div>
 
             {/* Powered by Text */}
             <div className="absolute z-20 bottom-4 sm:bottom-6 text-center w-full text-sm sm:text-xs text-gray-200 font-medium">

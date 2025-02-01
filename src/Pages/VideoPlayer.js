@@ -1,30 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 const media = [
-    "https://th.bing.com/th/id/R.1bad5bf0afee560b8f4863970cc053f0?rik=0i6P6b1oGvnYPg&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2fKcn%2fXbg%2fKcnXbgn6i.gif&ehk=MHjMyv%2bLUJ7zylzOaZiXkXCuEDnyCFeqxsbQ9Q4xSpg%3d&risl=&pid=ImgRaw&r=0",
-    "https://cdn.dribbble.com/users/4107408/screenshots/9974636/media/3410a2ae238a2a8a5a4d37e3a62f295a.gif",
-    "https://i.pinimg.com/originals/47/ca/bb/47cabbd4f6c516fd96b57442017f8450.gif",
-    "https://cdn.dribbble.com/users/1201194/screenshots/7197395/media/d5d300c76b56aa290f34cfc39de99c2d.gif",
-    "https://cdn.dribbble.com/users/3601595/screenshots/17036371/media/24a2e85aaebf6bd51ca1c2478f44024d.gif",
-    "https://cdn.dribbble.com/users/225068/screenshots/2224869/dog.gif",
-    "https://clipart-library.com/images/zcX5gEbMi.gif",
+    "https://media.giphy.com/media/Jo1Ox5v5pV9g9ati4S/giphy.gif"
 ];
 
-const productCategories = ["Pets", "Pet Foods", "Pet Medicines", "Pet Accessories"];
-
-
 const VideoPlayer = () => {
-    const [index, setIndex] = useState(0);
-    const [timeLeft, setTimeLeft] = useState("");
-    const isVideo = media[index].includes("youtube.com");
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setIndex((prevIndex) => (prevIndex + 1) % media.length);
-        }, isVideo ? 8000 : 3000);
-
-        return () => clearInterval(interval);
-    }, [index]);
+    const [timeLeft, setTimeLeft] = useState({
+        days: "00",
+        hours: "00",
+        minutes: "00",
+        seconds: "00"
+    });
 
     // Countdown Timer for 42 days
     useEffect(() => {
@@ -37,14 +24,14 @@ const VideoPlayer = () => {
 
             if (diff <= 0) {
                 clearInterval(timer);
-                setTimeLeft("EXPIRED");
+                setTimeLeft({ days: "00", hours: "00", minutes: "00", seconds: "00" });
             } else {
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                const days = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, "0");
+                const hours = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, "0");
+                const minutes = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, "0");
+                const seconds = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, "0");
 
-                setTimeLeft(`${days}D ${hours}H ${minutes}M ${seconds}S`);
+                setTimeLeft({ days, hours, minutes, seconds });
             }
         }, 1000); // Update every second
 
@@ -52,74 +39,106 @@ const VideoPlayer = () => {
     }, []);
 
     return (
-        <div className="w-screen h-screen flex justify-center items-center bg-black relative">
+        <div className="w-screen h-screen flex justify-center items-center bg-black relative overflow-hidden">
             {/* Full Screen Transparent Dark Gray Background */}
-{/* Full Screen Transparent Dark Gray Background */}
-<div className="absolute inset-0 bg-gray-800 opacity-80 z-10"></div>
+            <div className="absolute inset-0 bg-gray-800 opacity-80 z-10"></div>
 
-
-            {/* Product Categories - All in One Row */}
-            {/* Product Categories - 2 per Row */}
-            <div className="absolute z-20 top-32 text-blue-950 text-lg sm:text-2xl md:text-3xl font-semibold px-1 py-1 grid grid-cols-2 gap-6 text-center">
-                {productCategories.map((category, index) => (
-                    <div
-                        key={index}
-                        className="bg-blue-950 bg-opacity-70 text-white p-3 rounded-xl shadow-lg font-bold"
-                    >
-                        {category}
-                    </div>
-                ))}
+            {/* Caption */}
+            <div className="absolute top-10 sm:top-20 z-20 text-yellow-200 text-xl sm:text-3xl md:text-4xl font-semibold px-4 py-2 text-center w-full">
+                Your pet's happiness is our top priority!
             </div>
 
+            {/* Tagline - Below Caption */}
+<div className="absolute top-32 sm:top-48 z-20 text-white text-sm sm:text-xs md:text-lg font-semibold px-4 py-2 text-center w-full flex justify-center items-center">
+                Our online pet store will offer high-quality pet food, medicine, and supplies, carefully curated to ensure your furry friend's well-being. Stay tuned for our launch and get ready to give your pet the best.
+            </div>
 
-
-
-
-            {/* Coming Soon Text with Horizontal Movement */}
+            {/* Coming Soon Text */}
             <div
-                className="absolute z-20 text-white text-6xl sm:text-8xl md:text-8xl font-bold px-6 py-3 rounded-lg animate-[moveText_5s_linear_infinite] flex items-center"
-                style={{
-                    textShadow: "6px 6px 10px rgba(104, 72, 72, 0.8)",
-                }}
+                className="absolute top-72 sm:top-96 z-20 text-white text-5xl sm:text-6xl md:text-8xl font-bold px-6 py-3 rounded-lg animate-[moveText_5s_linear_infinite] flex items-center"
+                style={{ textShadow: "6px 6px 10px rgba(104, 72, 72, 0.8)" }}
             >
                 <span className="mr-2">COMING</span>
                 <span>SOON</span>
             </div>
 
+{/* Countdown Timer */}
+<div className="absolute top-60 sm:top-120 z-20 text-white text-3xl sm:text-2xl md:text-7xl font-bold px-4 py-2 sm:px-6 sm:py-3 mt-40 sm:mt-52 bg-purple-500 rounded-3xl sm:rounded-lg shadow-lg text-center w-4/5 sm:w-auto">
+    <div className="flex justify-between items-center space-x-0.5">
+        <div>
+            <div className="text-4xl sm:text-3xl md:text-5xl">{timeLeft.days}:</div>
+            <div className="text-sm sm:text-base md:text-lg text-gray-200">Days</div>
+        </div>
+        <div>
+            <div className="text-4xl sm:text-3xl md:text-5xl">{timeLeft.hours}:</div>
+            <div className="text-sm sm:text-base md:text-lg text-gray-200">Hours</div>
+        </div>
+        <div>
+            <div className="text-4xl sm:text-3xl md:text-5xl">{timeLeft.minutes}:</div>
+            <div className="text-sm sm:text-base md:text-lg text-gray-200">Min</div>
+        </div>
+        <div>
+            <div className="text-4xl sm:text-3xl md:text-5xl">{timeLeft.seconds}</div>
+            <div className="text-sm sm:text-base md:text-lg text-gray-200">Sec</div>
+        </div>
+    </div>
+</div>
 
 
-            {/* Countdown Timer with Gray Background */}
-            <div
-                className="absolute z-20 text-white text-4xl sm:text-4xl md:text-4xl lg:text-5xl font-bold px-4 py-2 sm:px-6 sm:py-3 mt-48 bg-purple-500 rounded-3xl sm:rounded-lg shadow-lg"
-                style={{
-                    textShadow: "2px 2px 6px rgba(0, 0, 0, 0.6)",
-                }}
-            >
-                {timeLeft}
-            </div>
-
-            {/* CONTACT US Button Below Timer */}
-            <a href="mailto:anirban.sarkar.kolkata@gmail.com" className="absolute z-20 bottom-16 text-white bg-blue-900 text-lg mb-4 font-bold px-4 py-2 rounded-full shadow-lg">
-                REACH OUT TO US
+{/* Social Media Icons */}
+<div className="absolute z-20 bottom-10 sm:bottom-12 md:bottom-16 flex justify-center space-x-2 sm:space-x-1 w-full">
+    <ul className="flex space-x-4 justify-center">
+        <li className="bg-white p-3 rounded-md shadow-lg">
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 text-xl sm:text-lg">
+                <FaFacebookF />
             </a>
+        </li>
+        <li className="bg-white p-3 rounded-md shadow-lg">
+            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="text-blue-400 text-xl sm:text-lg">
+                <FaTwitter />
+            </a>
+        </li>
+        <li className="bg-white p-3 rounded-md shadow-lg">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-pink-500 text-xl sm:text-lg">
+                <FaInstagram />
+            </a>
+        </li>
+        <li className="bg-white p-3 rounded-md shadow-lg">
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="text-blue-700 text-xl sm:text-lg">
+                <FaLinkedinIn />
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+{/* Powered by Text */}
+<div className="absolute z-20 bottom-4 sm:bottom-6 text-center w-full text-sm sm:text-xs text-gray-200 font-medium">
+    POWERED BY, Nasraax Tech Pvt Ltd
+</div>
+
+{/* Subscribe Section */}
+<div className="absolute z-20 bottom-24 sm:bottom-20 w-full mt-20 flex justify-center items-center space-x-2">
+    <input
+        type="email"
+        placeholder="Enter your email"
+        className="p-2 rounded-md text-black text-sm sm:text-xs md:text-base focus:outline-none focus:ring-2 focus:ring-purple-500"
+    />
+    <button
+        className="bg-purple-500 text-white p-2 rounded-md text-sm sm:text-xs md:text-base hover:bg-purple-600 transition"
+    >
+        Subscribe
+    </button>
+</div>
 
 
 
-            {isVideo ? (
-                <iframe
-                    className="w-[80%] h-auto rounded-lg shadow-xl shadow-gray-500 relative"
-                    src={media[index]}
-                    title="YouTube Video"
-                    frameBorder="0"
-                    allow="autoplay; fullscreen"
-                ></iframe>
-            ) : (
-                <img
-                    className="w-full h-full rounded-lg shadow-xl shadow-gray-500 object-cover transition-opacity duration-500 relative"
-                    src={media[index]}
-                    alt="Full Screen GIF"
-                />
-            )}
+            {/* GIF Display */}
+            <img
+                className="w-full h-full rounded-lg shadow-xl shadow-gray-500 object-cover transition-opacity duration-500 relative"
+                src={media[0]}
+                alt="Full Screen GIF"
+            />
         </div>
     );
 };

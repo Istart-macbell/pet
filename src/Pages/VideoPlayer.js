@@ -53,17 +53,20 @@ const VideoPlayer = () => {
                 Our online pet store will offer high-quality pet food, medicine, and supplies, carefully curated to ensure your furry friend's well-being. Stay tuned for our launch and get ready to give your pet the best.
             </div>
 
-{/* Coming Soon Text */}
-<div
-    className="absolute top-72 sm:top-96 md:bottom-32 z-20 text-white text-5xl sm:text-6xl md:text-8xl font-bold px-6 py-3 rounded-lg animate-[moveText_5s_linear_infinite] flex items-center"
-    style={{ textShadow: "6px 6px 10px rgba(104, 72, 72, 0.8)" }}
->
-    <span className="mr-2">COMING</span>
-    <span>SOON</span>
-</div>
+            {/* Coming Soon Text */}
+            <div
+                className="absolute top-72 sm:top-96 md:bottom-32 z-20 text-white text-5xl sm:text-6xl md:text-8xl font-bold px-6 py-3 rounded-lg animate-[moveText_5s_linear_infinite] flex items-center"
+                style={{ textShadow: "6px 6px 10px rgba(104, 72, 72, 0.8)" }}
+            >
+                <span className="mr-2">COMING</span>
+                <span>SOON</span>
+            </div>
 
             {/* Countdown Timer */}
-            <div className="absolute top-60 sm:top-120 z-20 text-white text-3xl sm:text-2xl md:text-7xl font-bold px-4 py-2 sm:px-6 sm:py-3 mt-40 sm:mt-52 bg-purple-500 rounded-3xl sm:rounded-lg shadow-lg text-center w-4/5 sm:w-auto">
+            <div
+                className="absolute z-20 text-white text-3xl sm:text-2xl md:text-7xl font-bold px-4 py-2 sm:px-6 sm:py-3 mt-40 sm:mt-52 bg-purple-500 rounded-3xl sm:rounded-lg shadow-lg text-center w-4/5 sm:w-auto
+                md:top-10 md:left-10 md:transform md:translate-x-0 md:translate-y-0"
+            >
                 <div className="flex justify-between items-center space-x-3 sm:space-x-1">
                     <div>
                         <div className="text-4xl sm:text-3xl md:text-5xl">{timeLeft.days}:</div>
@@ -84,31 +87,31 @@ const VideoPlayer = () => {
                 </div>
             </div>
 
-           {/* Social Media Icons */}
-<div className="absolute z-20 bottom-10 sm:bottom-12 md:bottom-16 flex justify-center space-x-4 sm:space-x-2 w-full">
-    <ul className="flex space-x-4 justify-center">
-        <li className="bg-white p-3 rounded-md shadow-lg">
-            <div className="text-blue-600 text-2xl sm:text-xl">
-                <FaFacebookF />
+            {/* Social Media Icons */}
+            <div className="absolute z-20 bottom-10 sm:bottom-16 md:bottom-16 flex justify-center space-x-4 sm:space-x-2 w-full">
+                <ul className="flex space-x-4 justify-center">
+                    <li className="bg-white p-3 rounded-md shadow-lg">
+                        <div className="text-blue-600 text-2xl sm:text-xl">
+                            <FaFacebookF />
+                        </div>
+                    </li>
+                    <li className="bg-white p-3 rounded-md shadow-lg">
+                        <div className="text-blue-400 text-2xl sm:text-xl">
+                            <FaTwitter />
+                        </div>
+                    </li>
+                    <li className="bg-white p-3 rounded-md shadow-lg">
+                        <div className="text-pink-500 text-2xl sm:text-xl">
+                            <FaInstagram />
+                        </div>
+                    </li>
+                    <li className="bg-white p-3 rounded-md shadow-lg">
+                        <div className="text-blue-700 text-2xl sm:text-xl">
+                            <FaLinkedinIn />
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </li>
-        <li className="bg-white p-3 rounded-md shadow-lg">
-            <div className="text-blue-400 text-2xl sm:text-xl">
-                <FaTwitter />
-            </div>
-        </li>
-        <li className="bg-white p-3 rounded-md shadow-lg">
-            <div className="text-pink-500 text-2xl sm:text-xl">
-                <FaInstagram />
-            </div>
-        </li>
-        <li className="bg-white p-3 rounded-md shadow-lg">
-            <div className="text-blue-700 text-2xl sm:text-xl">
-                <FaLinkedinIn />
-            </div>
-        </li>
-    </ul>
-</div>
 
             {/* Powered by Text */}
             <div className="absolute z-20 bottom-4 sm:bottom-6 text-center w-full text-sm sm:text-xs text-gray-200 font-medium">
@@ -116,7 +119,9 @@ const VideoPlayer = () => {
             </div>
 
             {/* Subscribe Section */}
-            <div className="absolute z-20 bottom-24 sm:bottom-20 w-full mt-20 flex justify-center items-center space-x-2">
+            <div className="absolute z-20 bottom-24 sm:bottom-32 w-full mt-20 flex justify-center items-center space-x-2
+                md:absolute md:top-10 md:right-10 md:flex md:justify-end md:items-center md:space-x-4
+                sm:bottom-32 sm:top-96">
                 <input
                     type="email"
                     placeholder="Enter your email"
